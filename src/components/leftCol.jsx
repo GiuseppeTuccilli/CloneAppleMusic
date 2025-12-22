@@ -15,7 +15,7 @@ const LeftCol = () => {
         <Form
           className="d-flex position-relative mx-1"
           onSubmit={(e) => {
-            e.preventDefault();
+            // e.preventDefault();
 
             navigate("/" + search);
           }}

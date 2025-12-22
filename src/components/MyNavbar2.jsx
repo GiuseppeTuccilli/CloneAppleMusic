@@ -4,6 +4,8 @@ import music from "../../assets/logos/music-white.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { current } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
 
 const MyNavbar2 = () => {
   const audio = useSelector((state) => {
@@ -17,10 +19,13 @@ const MyNavbar2 = () => {
   const songsArray = useSelector((state) => {
     return state.nuove.nuove;
   });
+  const [search, setSearch] = useState("");
 
   const [isFirstRender, setIsFirsoRender] = useState(true);
   const [currentTime, setCurentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+
+  const navigate = useNavigate();
 
   let audioRef = useRef();
 
@@ -30,6 +35,10 @@ const MyNavbar2 = () => {
   const pauseBtn = useRef();
   const vol = useRef();
   const seekRef = useRef();
+  let durationMinutes = 0;
+  let durationSeconds = 0;
+  let currentMinutes = 0;
+  let currentSeconds = 0;
 
   useEffect(() => {
     if (isFirstRender) {
@@ -217,18 +226,20 @@ const MyNavbar2 = () => {
               <i className="bi bi-repeat"></i>
             </Button>
           </div>
-          <Form.Range
-            id="seek"
-            className="vol w-100"
-            ref={seekRef}
-            value={currentTime}
-            onChange={(e) => {
-              setCurentTime(parseFloat(e.target.value));
-              if (audioRef.current) {
-                audioRef.current.currentTime = parseFloat(e.target.value);
-              }
-            }}
-          />
+          <div className="d-flex align-items-center justify-content-between w-100">
+            <Form.Range
+              id="seek"
+              className="vol  "
+              ref={seekRef}
+              value={currentTime}
+              onChange={(e) => {
+                setCurentTime(parseFloat(e.target.value));
+                if (audioRef.current) {
+                  audioRef.current.currentTime = parseFloat(e.target.value);
+                }
+              }}
+            />{" "}
+          </div>
         </div>
 
         <div
@@ -299,11 +310,17 @@ const MyNavbar2 = () => {
             </Button>
           </div>
 
-          <Form className="d-flex position-relative mx-1 d-lg-none">
+          <Form
+            className="d-flex position-relative mx-1 d-lg-none"
+            onSubmit={() => {
+              navigate("/" + search);
+            }}
+          >
             <Button
               id="search-btn"
               variant="outline-danger"
               className="border-border-1 border-white"
+              type="submit"
             >
               <i className="bi bi-search d-flex me-0 "></i>
             </Button>
@@ -314,6 +331,10 @@ const MyNavbar2 = () => {
               className="me-2 my-4  bg-neroChiaro"
               aria-label="Search"
               style={{ height: "1.8em", borderLeft: "0" }}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              value={search}
             />
           </Form>
         </div>
