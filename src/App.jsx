@@ -3,7 +3,7 @@ import "../src/style/coustomBootstrap.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import LeftCol from "./components/leftCol";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import MyNavbar from "./components/MyNavbar";
+
 import MyNavbar2 from "./components/MyNavbar2";
 import Top from "./components/Top";
 import Middle from "./components/midle";

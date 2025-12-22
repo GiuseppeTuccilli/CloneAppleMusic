@@ -4,7 +4,7 @@ import music from "../../assets/logos/music-white.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
-import { current } from "@reduxjs/toolkit";
+
 import { useNavigate } from "react-router-dom";
 
 const MyNavbar2 = () => {
@@ -35,10 +35,6 @@ const MyNavbar2 = () => {
   const pauseBtn = useRef();
   const vol = useRef();
   const seekRef = useRef();
-  let durationMinutes = 0;
-  let durationSeconds = 0;
-  let currentMinutes = 0;
-  let currentSeconds = 0;
 
   useEffect(() => {
     if (isFirstRender) {
@@ -258,33 +254,7 @@ const MyNavbar2 = () => {
             className="bg-grigio d-none d-flex align-items-center justify-content-evenly"
             style={{ height: "4em" }}
           ></div>
-          {/*<div id="player" className="d-lg-flex  h-100 align-content-center">
-            <Button>
-              <i className="bi bi-shuffle"></i>
-            </Button>
-            <Button>
-              <i className="bi bi-skip-backward-fill"></i>
-            </Button>
-            <audio src={audio !== "" ? audio : null} ref={audioRef}></audio>
-            <Button
-              className="fs-1"
-              onClick={() => {
-                playPause();
-              }}
-            >
-              {!isPlaying ? (
-                <i className={"bi  d-flex bi-play-fill"} ref={playBtn}></i>
-              ) : (
-                <i className="bi bi-pause-fill d-flex " ref={pauseBtn}></i>
-              )}
-            </Button>
-            <Button>
-              <i className="bi bi-fast-forward-fill"></i>
-            </Button>
-            <Button>
-              <i className="bi bi-repeat"></i>
-            </Button>
-          </div>*/}
+
           <div
             id="centralLogo"
             className="d-none d-lg-flex align-items-center"
