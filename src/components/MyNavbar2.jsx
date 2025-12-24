@@ -23,6 +23,8 @@ const MyNavbar2 = () => {
 
   const [isFirstRender, setIsFirsoRender] = useState(true);
   const [currentTime, setCurentTime] = useState(0);
+  const [repeate, setRepeate] = useState(false);
+  const [randomTrack, setRandomtrack] = useState(false);
   const [duration, setDuration] = useState(0);
 
   const navigate = useNavigate();
@@ -188,7 +190,17 @@ const MyNavbar2 = () => {
           className="d-lg-flex flex-column h-100 align-content-center"
         >
           <div id="insidePlayer">
-            <Button>
+            <Button
+              onClick={() => {
+                if (randomTrack) {
+                  setRandomtrack(false);
+                } else {
+                  setRandomtrack(true);
+                  setRepeate(false);
+                }
+              }}
+              className={randomTrack ? "bg-white" : ""}
+            >
               <i className="bi bi-shuffle"></i>
             </Button>
             <Button
@@ -218,7 +230,17 @@ const MyNavbar2 = () => {
             >
               <i className="bi bi-fast-forward-fill"></i>
             </Button>
-            <Button>
+            <Button
+              onClick={() => {
+                if (repeate) {
+                  setRepeate(false);
+                } else {
+                  setRepeate(true);
+                  setRandomtrack(false);
+                }
+              }}
+              className={repeate ? "bg-white" : ""}
+            >
               <i className="bi bi-repeat"></i>
             </Button>
           </div>
