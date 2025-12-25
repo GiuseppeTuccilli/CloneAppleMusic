@@ -262,7 +262,7 @@ const MyNavbar2 = () => {
                 forward();
               }}
             >
-              <i className="bi bi-fast-forward-fill"></i>
+              <i className="bi bi-skip-forward-fill"></i>
             </Button>
             <Button
               onClick={() => {
