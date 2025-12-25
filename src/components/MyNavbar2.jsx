@@ -133,14 +133,11 @@ const MyNavbar2 = () => {
       dispatch({
         type: "IS_PLAYING",
       });
-      console.log(audio);
     } else {
       dispatch({
         type: "NOT_PLAYING",
       });
     }
-
-    console.log(isPlaying);
   };
 
   const forward = function () {
