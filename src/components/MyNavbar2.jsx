@@ -60,8 +60,6 @@ const MyNavbar2 = () => {
       let randomIndex = Math.floor(Math.random() * songsArray.length);
       if (randomIndex === j && randomIndex === songsArray.length - 1) {
         randomIndex = randomIndex - 1;
-      } else if (randomIndex === j && randomIndex === 0) {
-        randomIndex = randomIndex + 1;
       } else if (randomIndex === j) {
         randomIndex = randomIndex + 1;
       }
