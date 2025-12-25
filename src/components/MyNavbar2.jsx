@@ -38,6 +38,42 @@ const MyNavbar2 = () => {
   const vol = useRef();
   const seekRef = useRef();
 
+  const handleEnded = () => {
+    if (repeate) {
+      if (isPlaying) {
+        audioRef.current.play();
+        audioRef.volume = vol.current.value;
+      } else {
+        dispatch({
+          type: "IS_PLAYING",
+        });
+        audioRef.current.play();
+        audioRef.volume = vol.current.value;
+      }
+    } else if (randomTrack) {
+      let j = 0;
+      for (let i = 0; i < songsArray.length; i++) {
+        if (songsArray[i].preview === audio) {
+          j = i;
+        }
+      }
+      let randomIndex = Math.floor(Math.random() * songsArray.length);
+      if (randomIndex === j && randomIndex === songsArray.length - 1) {
+        randomIndex = randomIndex - 1;
+      } else if (randomIndex === j && randomIndex === 0) {
+        randomIndex = randomIndex + 1;
+      } else if (randomIndex === j) {
+        randomIndex = randomIndex + 1;
+      }
+      dispatch({
+        type: "GET_AUDIO",
+        payload: songsArray[randomIndex].preview,
+      });
+    } else {
+      return;
+    }
+  };
+
   useEffect(() => {
     if (isFirstRender) {
       setIsFirsoRender(false);
@@ -79,7 +115,6 @@ const MyNavbar2 = () => {
       dispatch({
         type: "IS_PLAYING",
       });
-
       audioRef.current.play();
       audioRef.volume = vol.current.value;
     }
@@ -210,7 +245,11 @@ const MyNavbar2 = () => {
             >
               <i className="bi bi-skip-backward-fill"></i>
             </Button>
-            <audio src={audio !== "" ? audio : null} ref={audioRef}></audio>
+            <audio
+              src={audio !== "" ? audio : null}
+              ref={audioRef}
+              onEnded={handleEnded}
+            ></audio>
             <Button
               className="fs-1"
               onClick={() => {
