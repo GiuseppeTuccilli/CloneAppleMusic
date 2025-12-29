@@ -26,6 +26,8 @@ const MyNavbar2 = () => {
   const [repeate, setRepeate] = useState(false);
   const [randomTrack, setRandomtrack] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [durationString, setDurationString] = useState("--:--");
+  const [currentString, setCurrentString] = useState("--:--");
 
   const navigate = useNavigate();
 
@@ -72,6 +74,48 @@ const MyNavbar2 = () => {
     }
   };
 
+  const handleCurrentString = (cur) => {
+    let min = 0;
+    let sec = 0;
+    let curInt = Math.floor(cur);
+    min = Math.floor(curInt / 60);
+    sec = curInt - min * 60;
+    let minStr = "";
+    let secStr = "";
+    if (min < 10) {
+      minStr = "0" + min;
+    } else {
+      minStr = min;
+    }
+    if (sec < 10) {
+      secStr = "0" + sec;
+    } else {
+      secStr = sec;
+    }
+    setCurrentString(minStr + ":" + secStr);
+  };
+
+  const handleDurString = (dur) => {
+    let min = 0;
+    let sec = 0;
+    let durInt = Math.ceil(dur);
+    min = Math.floor(durInt / 60);
+    sec = durInt - min * 60;
+    let minStr = "";
+    let secStr = "";
+    if (min < 10) {
+      minStr = "0" + min;
+    } else {
+      minStr = min;
+    }
+    if (sec < 10) {
+      secStr = "0" + sec;
+    } else {
+      secStr = sec;
+    }
+    setDurationString(minStr + ":" + secStr);
+  };
+
   useEffect(() => {
     if (isFirstRender) {
       setIsFirsoRender(false);
@@ -96,10 +140,12 @@ const MyNavbar2 = () => {
       seekRef.current.min = 0;
       seekRef.current.max = audioRef.current.duration;
       setDuration(audioRef.current.duration);
+      handleDurString(audioRef.current.duration);
     };
 
     const handleTimeUpdate = () => {
       setCurentTime(audioRef.current.currentTime);
+      handleCurrentString(audioRef.current.currentTime);
     };
 
     audioRef.current.addEventListener("loadedmetadata", handleMetaData);
@@ -278,19 +324,25 @@ const MyNavbar2 = () => {
               <i className="bi bi-repeat"></i>
             </Button>
           </div>
-          <div className="d-flex align-items-center justify-content-between w-100">
-            <Form.Range
-              id="seek"
-              className="vol  "
-              ref={seekRef}
-              value={currentTime}
-              onChange={(e) => {
-                setCurentTime(parseFloat(e.target.value));
-                if (audioRef.current) {
-                  audioRef.current.currentTime = parseFloat(e.target.value);
-                }
-              }}
-            />{" "}
+          <div className="w-100 d-flex flex-column">
+            <div className="d-none d-lg-flex justify-content-between">
+              <p className="m-0 text-secondary time">{currentString}</p>
+              <p className="m-0 text-secondary time">{durationString}</p>
+            </div>
+            <div className="d-flex align-items-center justify-content-between w-100">
+              <Form.Range
+                id="seek"
+                className="vol  "
+                ref={seekRef}
+                value={currentTime}
+                onChange={(e) => {
+                  setCurentTime(parseFloat(e.target.value));
+                  if (audioRef.current) {
+                    audioRef.current.currentTime = parseFloat(e.target.value);
+                  }
+                }}
+              />{" "}
+            </div>
           </div>
         </div>
 
@@ -298,13 +350,7 @@ const MyNavbar2 = () => {
           className="collapse navbar-collapse justify-content-evenly"
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none ">
-            {/*<li className="nav-item d-lg-none">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>*/}
-          </ul>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none "></ul>
 
           <div
             className="bg-grigio d-none d-flex align-items-center justify-content-evenly"
@@ -318,6 +364,7 @@ const MyNavbar2 = () => {
           >
             <img src={apple} />
           </div>
+
           <div id="range" className="d-none d-lg-flex align-items-center">
             <Form.Range
               id="vol"
@@ -329,6 +376,7 @@ const MyNavbar2 = () => {
               }}
             />
           </div>
+
           <div className="d-none d-lg-flex align-items-center">
             <Button variant="danger">
               <i className="bi bi-person-fill" style={{ height: "2em" }}></i>

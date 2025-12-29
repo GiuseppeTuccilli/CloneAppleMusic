@@ -60,6 +60,10 @@ $new-theme-colors: (
   background: transparent;
 }
 
+.time {
+  font-size: 0.9em;
+}
+
 /* barra */
 .vol::-webkit-slider-runnable-track {
   background: #626262;
