@@ -359,8 +359,7 @@ const MyNavbar2 = () => {
 
           <div
             id="centralLogo"
-            className="d-none d-lg-flex align-items-center"
-            style={{ height: "3em" }}
+            className="d-none d-lg-flex align-items-center justify-content-center"
           >
             <img src={apple} />
           </div>

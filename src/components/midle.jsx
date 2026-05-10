@@ -11,7 +11,7 @@ const Middle = () => {
     <Container className="mt-5">
       <h4 className="text-white">Nuovi episodi radio</h4>
 
-      <Carousel className="d-none d-lg-flex" id="midCar">
+      <Carousel controls={false} className="d-none d-lg-flex" id="midCar">
         <Carousel.Item>
           <div className="d-flex big-car">
             <div className="d-flex flex-column" style={{ width: "24%" }}>
@@ -65,7 +65,7 @@ const Middle = () => {
           </div>
         </Carousel.Item>
       </Carousel>
-      <Carousel className="d-lg-none">
+      <Carousel controls={false} slide={true} className="d-lg-none">
         <Carousel.Item>
           <div className="d-flex big-car">
             <div className="d-flex flex-column" style={{ width: "33%" }}>
