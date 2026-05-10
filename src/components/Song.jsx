@@ -29,7 +29,7 @@ const Song = () => {
     console.log(searchedSongs);
     dispatch((dispatch, getState) => {
       fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + word
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + word,
       )
         .then((res) => {
           if (res.ok) {
@@ -58,24 +58,24 @@ const Song = () => {
             <Card
               className="bg-grigio"
               style={{ border: song.preview === audio && "3px solid red" }}
+              onClick={() => {
+                console.log(song.preview);
+                dispatch({
+                  type: "GET_AUDIO",
+                  payload: song.preview,
+                });
+              }}
             >
               <Card.Img
-                onClick={() => {
-                  console.log(song.preview);
-                  dispatch({
-                    type: "GET_AUDIO",
-                    payload: song.preview,
-                  });
-                }}
                 variant="top"
+                className="rounded-1"
                 src={song.album.cover_big}
-                style={{ borderRadius: "3px" }}
               />
-              <Card.Body>
-                <Card.Title className="text-white">
+              <Card.Body className="pt-1">
+                <Card.Text className="text-white">
+                  {" "}
                   {song.album.title}
-                </Card.Title>
-                <Card.Text></Card.Text>
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>

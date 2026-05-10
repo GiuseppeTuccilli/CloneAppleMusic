@@ -150,8 +150,16 @@ $new-theme-colors: (
   height: 15em;
 }
 
-.card img {
+.card {
   cursor: pointer;
+}
+
+.card .card-body {
+  height: 3.5rem;
+  overflow: clip;
+}
+
+.card img {
   transition: 0.1s linear;
 }
 
