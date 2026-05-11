@@ -32,7 +32,6 @@ const LeftCol = () => {
             placeholder="cerca"
             className="me-2 my-4  bg-neroChiaro text-white"
             aria-label="Search"
-            style={{ height: "1.8em", borderLeft: "0" }}
             required
             onChange={(e) => {
               setSearch(e.target.value);

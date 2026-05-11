@@ -357,13 +357,6 @@ const MyNavbar2 = () => {
           className="collapse navbar-collapse justify-content-evenly"
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none "></ul>
-
-          <div
-            className="bg-grigio d-none d-flex align-items-center justify-content-evenly"
-            style={{ height: "4em" }}
-          ></div>
-
           <div
             id="centralLogo"
             className="d-none d-lg-flex align-items-center justify-content-center"
@@ -385,7 +378,6 @@ const MyNavbar2 = () => {
             <Form.Range
               id="vol"
               className="vol"
-              style={{ width: "6em" }}
               ref={vol}
               onChange={(e) => {
                 audioRef.current.volume = e.target.value / 100;
@@ -394,8 +386,8 @@ const MyNavbar2 = () => {
           </div>
 
           <div className="d-none d-lg-flex align-items-center">
-            <Button variant="danger">
-              <i className="bi bi-person-fill" style={{ height: "2em" }}></i>
+            <Button variant="danger" id="accedi">
+              <i className="bi bi-person-fill"></i>
               Accedi
             </Button>
           </div>
@@ -420,7 +412,6 @@ const MyNavbar2 = () => {
               placeholder="cerca"
               className="me-2 my-4  bg-neroChiaro"
               aria-label="Search"
-              style={{ height: "1.8em", borderLeft: "0" }}
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
