@@ -12,6 +12,14 @@ const MyNavbar2 = () => {
     return state.audioA.audio;
   });
 
+  const title = useSelector((state) => {
+    return state.audioA.title;
+  });
+
+  const cover = useSelector((state) => {
+    return state.audioA.cover;
+  });
+
   const isPlaying = useSelector((state) => {
     return state.audioA.isplaying;
   });
@@ -361,7 +369,17 @@ const MyNavbar2 = () => {
             id="centralLogo"
             className="d-none d-lg-flex align-items-center justify-content-center"
           >
-            <img src={apple} />
+            {" "}
+            {title !== "" ? (
+              <div className="d-flex w-100">
+                <img src={cover} />
+                <div className="d-flex align-items-center justify-content-center w-100 px-1">
+                  <p className="m-0 text-white">{title}</p>
+                </div>
+              </div>
+            ) : (
+              <img src={apple} />
+            )}
           </div>
 
           <div id="range" className="d-none d-lg-flex align-items-center">

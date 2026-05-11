@@ -50,6 +50,11 @@ $new-theme-colors: (
   width: 20em;
   height: 3em;
   background-color: #626262;
+  div {
+    img {
+      height: 3em;
+    }
+  }
 }
 
 .vol {

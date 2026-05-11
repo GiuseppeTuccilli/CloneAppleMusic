@@ -3,6 +3,8 @@ import { isPlain } from "@reduxjs/toolkit";
 const initialState = {
   audio: "",
   isplaying: false,
+  title: "",
+  cover: "",
 };
 
 const audioReducer = (state = initialState, action) => {
@@ -11,6 +13,18 @@ const audioReducer = (state = initialState, action) => {
       return {
         ...state,
         audio: action.payload,
+      };
+
+    case "GET_TITLE":
+      return {
+        ...state,
+        title: action.payload,
+      };
+
+    case "GET_COVER":
+      return {
+        ...state,
+        cover: action.payload,
       };
 
     case "NOT_PLAYING":

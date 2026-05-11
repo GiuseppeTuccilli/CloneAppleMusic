@@ -64,6 +64,14 @@ const Song = () => {
                   type: "GET_AUDIO",
                   payload: song.preview,
                 });
+                dispatch({
+                  type: "GET_TITLE",
+                  payload: song.album.title,
+                });
+                dispatch({
+                  type: "GET_COVER",
+                  payload: song.album.cover_big,
+                });
               }}
             >
               <Card.Img
