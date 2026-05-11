@@ -27,8 +27,8 @@ const MyNavbar2 = () => {
   const songsArray = useSelector((state) => {
     return state.nuove.nuove;
   });
-  const [search, setSearch] = useState("");
 
+  const [search, setSearch] = useState("");
   const [isFirstRender, setIsFirsoRender] = useState(true);
   const [currentTime, setCurentTime] = useState(0);
   const [repeate, setRepeate] = useState(false);
@@ -140,7 +140,6 @@ const MyNavbar2 = () => {
   useEffect(() => {
     if (isFirstRender) {
       setIsFirsoRender(false);
-
       return;
     }
 
