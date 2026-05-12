@@ -56,8 +56,10 @@ const Song = () => {
         return (
           <Col xs={4} lg={3} key={song.id}>
             <Card
-              className="bg-grigio"
-              style={{ border: song.preview === audio && "3px solid red" }}
+              className={
+                "bg-grigio " +
+                (song.preview === audio && "border border-3 border-danger")
+              }
               onClick={() => {
                 console.log(song.preview);
                 dispatch({
