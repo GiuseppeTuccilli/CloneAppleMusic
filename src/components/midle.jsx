@@ -45,27 +45,15 @@ const Middle = () => {
         <Carousel.Item>
           <div className="d-flex big-car">
             <div className="d-flex flex-column">
-              <img
-                src={dueA}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueA} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
             <div className="d-flex flex-column">
-              <img
-                src={dueB}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueB} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
             <div className="d-flex flex-column">
-              <img
-                src={dueC}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueC} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
           </div>
@@ -73,27 +61,15 @@ const Middle = () => {
         <Carousel.Item>
           <div className="d-flex big-car">
             <div className="d-flex flex-column">
-              <img
-                src={dueE}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueE} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
             <div className="d-flex flex-column">
-              <img
-                src={dueF}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueF} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
             <div className="d-flex flex-column">
-              <img
-                src={dueA}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+              <img src={dueA} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
           </div>
