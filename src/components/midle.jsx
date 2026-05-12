@@ -41,10 +41,10 @@ const Middle = () => {
           </div>
         </Carousel.Item>
       </Carousel>
-      <Carousel controls={false} slide={true} className="d-lg-none">
+      <Carousel controls={false} slide={true} className="d-lg-none" id="smCar">
         <Carousel.Item>
           <div className="d-flex big-car">
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueA}
                 className=" mx-1 flex-grow-1 "
@@ -52,7 +52,7 @@ const Middle = () => {
               />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueB}
                 className=" mx-1 flex-grow-1 "
@@ -60,7 +60,7 @@ const Middle = () => {
               />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueC}
                 className=" mx-1 flex-grow-1 "
@@ -72,7 +72,7 @@ const Middle = () => {
         </Carousel.Item>
         <Carousel.Item>
           <div className="d-flex big-car">
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueE}
                 className=" mx-1 flex-grow-1 "
@@ -80,7 +80,7 @@ const Middle = () => {
               />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueF}
                 className=" mx-1 flex-grow-1 "
@@ -88,7 +88,7 @@ const Middle = () => {
               />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "33%" }}>
+            <div className="d-flex flex-column">
               <img
                 src={dueA}
                 className=" mx-1 flex-grow-1 "
