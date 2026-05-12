@@ -142,6 +142,19 @@ $new-theme-colors: (
   cursor: pointer;
 }
 
+#topSpace {
+  height: 5em;
+}
+
+#topContainer hr {
+  height: 2px;
+}
+
+#topContainer img {
+  width: 98%;
+  object-fit: contain;
+}
+
 #accMob {
   background-color: transparent;
   border: none;
