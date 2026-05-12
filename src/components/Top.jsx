@@ -18,7 +18,6 @@ const Top = () => {
               <p className="text-white fw-bold pe-2 mb-auto flex-grow-1">
                 Rilassati, al resto pensiamo noi, ascolta Apple Music Chill
               </p>
-
               <img src={unoA} className=" mx-1 flex-grow-1 " />
             </div>
             <div className="d-flex flex-column">
@@ -52,7 +51,7 @@ const Top = () => {
           </div>
         </Carousel.Item>
       </Carousel>
-      <Carousel className=" d-lg-none ">
+      <Carousel className=" d-lg-none " controls={false}>
         <Carousel.Item>
           <div className="d-flex big-car">
             <div className="d-flex flex-column">
