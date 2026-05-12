@@ -14,52 +14,28 @@ const Middle = () => {
       <Carousel controls={false} className="d-none d-lg-flex" id="midCar">
         <Carousel.Item>
           <div className="d-flex big-car">
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueA}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueA} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueB}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueB} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueC}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueC} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueD}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueD} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueE}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueE} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
-            <div className="d-flex flex-column" style={{ width: "24%" }}>
-              <img
-                src={dueF}
-                className=" mx-1 flex-grow-1 "
-                style={{ width: "98%", objectFit: "contain", height: "15em" }}
-              />
+            <div className="d-flex flex-column">
+              <img src={dueF} className=" mx-1 flex-grow-1 " />
               <p className="text-white ms-1">Prologo con Abuelo</p>
             </div>
           </div>

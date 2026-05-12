@@ -164,6 +164,12 @@ $new-theme-colors: (
   height: 15em;
 }
 
+#midCar .big-car img {
+  width: 98%;
+  object-fit: contain;
+  height: 15em;
+}
+
 .card {
   cursor: pointer;
 }
