@@ -30,9 +30,9 @@ function App() {
                   path="/"
                   element={
                     <>
+                      <NuoveUscite />
                       <Top />
                       <Middle />
-                      <NuoveUscite />
                     </>
                   }
                 />

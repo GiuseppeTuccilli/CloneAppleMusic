@@ -6,8 +6,7 @@ import unoC from "../../assets/images/1c.png";
 
 const Top = () => {
   return (
-    <Container className="mt-5" id="topContainer">
-      <div id="topSpace"></div>
+    <Container className="mt-3" id="topContainer">
       <h1 className="text-white">Novità</h1>
       <hr className="bg-white" />
       <Carousel controls={false} className="d-none d-lg-flex">
