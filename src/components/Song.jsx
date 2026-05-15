@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Col, Card } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Card, Alert, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { getSongs } from "../files/functions";
 
 const Song = () => {
+  const [error, setError] = useState(false);
+  const [errMes, setErrMes] = useState("");
+  const [loading, setLoading] = useState(true);
+
   const dispatch = useDispatch();
 
   const nuove = useSelector((state) => {
@@ -35,14 +39,29 @@ const Song = () => {
           type: "GET_NUOVE",
           payload: data.data,
         });
+        setError(false);
+        setLoading(false);
       } catch (er) {
         console.log(er.toString());
+        setError(true);
+        setErrMes(er.toString());
+        setLoading(false);
       }
     });
   }, [params.search]);
 
   return (
     <>
+      {error && (
+        <Alert variant="danger" className="text-center">
+          {errMes}
+        </Alert>
+      )}
+      {loading && (
+        <div className="text-center">
+          <Spinner variant="danger" />
+        </div>
+      )}
       {nuove.nuove.map((song) => {
         return (
           <Col xs={4} lg={3} key={song.id}>
