@@ -48,7 +48,7 @@ const Song = () => {
         setLoading(false);
       }
     });
-  }, [params.search]);
+  }, []);
 
   return (
     <>

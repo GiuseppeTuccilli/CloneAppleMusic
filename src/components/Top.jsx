@@ -30,8 +30,8 @@ const Top = () => {
   }, []);
 
   const handleClick = function (artist) {
-    window.scrollTo(0, -document.body.scrollHeight);
     navigate("/" + artist.name);
+    window.location.reload();
   };
 
   return (

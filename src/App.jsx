@@ -40,7 +40,6 @@ function App() {
                   path="/:Search"
                   element={
                     <>
-                      <div style={{ height: "10em" }}></div>
                       <NuoveUscite />
                     </>
                   }

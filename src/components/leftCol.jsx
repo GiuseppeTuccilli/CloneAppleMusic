@@ -43,6 +43,7 @@ const LeftCol = () => {
           className="mx-3 side-btn mt-3 mb-1"
           onClick={() => {
             navigate("/");
+            window.location.reload();
           }}
         >
           <span className="me-2">
