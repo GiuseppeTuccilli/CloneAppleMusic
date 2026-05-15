@@ -20,8 +20,7 @@ const NuoveUscite = () => {
   }, [params.Search]);
 
   return (
-    <Container className="mt-5">
-      <div id="topSpace"></div>
+    <Container className="mt-3">
       <h3 className="text-white">
         {params.Search === undefined
           ? "Nuove Uscite"

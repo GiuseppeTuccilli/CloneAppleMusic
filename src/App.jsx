@@ -30,9 +30,10 @@ function App() {
                   path="/"
                   element={
                     <>
-                      <NuoveUscite />
+                      <div className="topSpace"></div>
                       <Top />
                       <Middle />
+                      <NuoveUscite />
                     </>
                   }
                 />
@@ -40,6 +41,7 @@ function App() {
                   path="/:Search"
                   element={
                     <>
+                      <div className="topSpace"></div>
                       <NuoveUscite />
                     </>
                   }
