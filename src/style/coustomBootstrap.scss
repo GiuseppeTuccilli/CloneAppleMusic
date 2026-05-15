@@ -151,8 +151,9 @@ $new-theme-colors: (
 }
 
 #topContainer img {
+  height: 20em;
   width: 98%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 #accMob {
