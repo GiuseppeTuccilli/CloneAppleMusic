@@ -429,6 +429,18 @@ const MyNavbar2 = () => {
               Accedi
             </Button>
           </div>
+          <div
+            className="mx-2 side-btn mt-4 mb-1 d-lg-none"
+            onClick={() => {
+              navigate("/");
+              window.location.reload();
+            }}
+          >
+            <span className="me-2">
+              <i className="bi bi-house-door"></i>
+            </span>
+            Home
+          </div>
 
           <Form
             className="d-flex position-relative mx-1 d-lg-none"
@@ -448,7 +460,7 @@ const MyNavbar2 = () => {
               id="cerca"
               type="search"
               placeholder="cerca"
-              className="me-2 my-4  bg-neroChiaro"
+              className="me-2 my-3  bg-neroChiaro"
               aria-label="Search"
               onChange={(e) => {
                 setSearch(e.target.value);
