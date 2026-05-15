@@ -37,6 +37,9 @@ const MyNavbar2 = () => {
   const [durationString, setDurationString] = useState("--:--");
   const [currentString, setCurrentString] = useState("--:--");
 
+  const divInfo = useRef(null);
+  const pInfo = useRef(null);
+
   const navigate = useNavigate();
 
   let audioRef = useRef();
@@ -170,6 +173,23 @@ const MyNavbar2 = () => {
       audioRef.volume = vol.current.value;
     }
 
+    console.log(divInfo);
+    console.log(pInfo);
+
+    if (divInfo !== null && pInfo !== null) {
+      if (pInfo.current.clientWidth > divInfo.current.clientWidth) {
+        const dif =
+          (pInfo.current.clientWidth - divInfo.current.clientWidth) * -1;
+        document.documentElement.style.setProperty(
+          "--wid",
+          dif.toString() + "px",
+        );
+        pInfo.current.classList.add("animateInfo");
+      } else {
+        pInfo.current.classList.remove("animateInfo");
+      }
+    }
+
     return () => {
       audioRef.current.removeEventListener("loadedmetadata", handleMetaData);
       audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
@@ -252,7 +272,11 @@ const MyNavbar2 = () => {
       className="navbar navbar-expand-lg bg-body-tertiary position-fixed z-2"
       data-bs-theme="dark"
     >
-      <div className="container-fluid">
+      <div
+        className={
+          "container-fluid " + (audio !== "" && " justify-content-start ")
+        }
+      >
         <button
           className="navbar-toggler text-danger"
           type="button"
@@ -264,10 +288,23 @@ const MyNavbar2 = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <img src={music} className="d-lg-none" />
+
+        {audio === "" ? (
+          <img src={music} className="d-lg-none" />
+        ) : (
+          <div className="songInfo d-flex d-lg-none align-items-center justify-content-center p-2 flex-grow-1">
+            <img src={cover} />
+            <div className="ms-2" ref={divInfo}>
+              <p className="m-0 text-light" ref={pInfo}>
+                {title}
+              </p>
+            </div>
+          </div>
+        )}
         <Button id="accMob" className="d-flex d-lg-none text-danger fw-bold">
           Accedi
         </Button>
+        {/* inizio player */}
         <div
           id="player"
           className="d-lg-flex flex-column h-100 align-content-center"
@@ -331,6 +368,7 @@ const MyNavbar2 = () => {
               <i className="bi bi-repeat"></i>
             </Button>
           </div>
+
           <div className="w-100 d-flex flex-column">
             <div className="d-none d-lg-flex justify-content-between">
               <p className="m-0 text-secondary time">{currentString}</p>
@@ -352,7 +390,7 @@ const MyNavbar2 = () => {
             </div>
           </div>
         </div>
-
+        {/* fine player */}
         <div
           className="collapse navbar-collapse justify-content-evenly"
           id="navbarSupportedContent"
