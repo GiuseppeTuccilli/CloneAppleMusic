@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Col, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { getSongs } from "../files/functions";
 
 const Song = () => {
   const dispatch = useDispatch();
@@ -27,26 +28,16 @@ const Song = () => {
     }
     let searchedSongs = searched;
     console.log(searchedSongs);
-    dispatch((dispatch, getState) => {
-      fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + word,
-      )
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          } else {
-            throw new Error("errore");
-          }
-        })
-        .then((data) => {
-          dispatch({
-            type: "GET_NUOVE",
-            payload: data.data,
-          });
-        })
-        .catch((er) => {
-          console.log(er);
+    dispatch(async (dispatch, getState) => {
+      try {
+        const data = await getSongs(word);
+        dispatch({
+          type: "GET_NUOVE",
+          payload: data.data,
         });
+      } catch (er) {
+        console.log(er.toString());
+      }
     });
   }, [params.search]);
 
@@ -61,7 +52,6 @@ const Song = () => {
                 (song.preview === audio && "border border-3 border-danger")
               }
               onClick={() => {
-                console.log(song.preview);
                 dispatch({
                   type: "GET_AUDIO",
                   payload: song.preview,
