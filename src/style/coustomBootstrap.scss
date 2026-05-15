@@ -314,17 +314,18 @@ $new-theme-colors: (
 
 :root {
   --wid: "";
+  --dur: 5s;
 }
 
 @keyframes infoAnimation {
   0% {
     left: 0;
   }
-  10% {
+  15% {
     left: 0;
   }
 
-  90% {
+  85% {
     left: var(--wid);
   }
   100% {
@@ -332,8 +333,28 @@ $new-theme-colors: (
   }
 }
 
+@keyframes infoAnimationLg {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(0);
+  }
+
+  85% {
+    transform: translateX(var(--wid));
+  }
+  100% {
+    transform: translateX(var(--wid));
+  }
+}
+
+.animateInfoLg {
+  animation: infoAnimationLg var(--dur) linear 0s infinite;
+}
+
 .animateInfo {
-  animation: infoAnimation 3s linear 0s infinite;
+  animation: infoAnimation 5s linear 0s infinite;
 }
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);

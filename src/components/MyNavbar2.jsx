@@ -39,6 +39,9 @@ const MyNavbar2 = () => {
 
   const divInfo = useRef(null);
   const pInfo = useRef(null);
+  const divInfoLg = useRef(null);
+  const pInfoLg = useRef(null);
+  const imgInfoLg = useRef(null);
 
   const navigate = useNavigate();
 
@@ -187,6 +190,35 @@ const MyNavbar2 = () => {
         pInfo.current.classList.add("animateInfo");
       } else {
         pInfo.current.classList.remove("animateInfo");
+      }
+    }
+
+    if (divInfoLg !== null && imgInfoLg !== null && pInfoLg !== null) {
+      const portion =
+        divInfoLg.current.clientWidth - imgInfoLg.current.clientWidth;
+      const pWidth = pInfoLg.current.clientWidth;
+      if (pWidth > portion) {
+        const dif = -1 * (pWidth - portion);
+
+        document.documentElement.style.setProperty(
+          "--wid",
+          dif.toString() + "px",
+        );
+        let duration = 5;
+        if (-dif < 90) {
+          duration = 4;
+        }
+        if (-dif < 60) {
+          duration = 3;
+        }
+
+        console.log(dif);
+
+        document.documentElement.style.setProperty(`--dur`, `${duration}s`);
+
+        pInfoLg.current.classList.add("animateInfoLg");
+      } else {
+        pInfoLg.current.classList.remove("animateInfoLg");
       }
     }
 
@@ -401,10 +433,15 @@ const MyNavbar2 = () => {
           >
             {" "}
             {title !== "" ? (
-              <div className="d-flex w-100">
-                <img src={cover} />
-                <div className="d-flex align-items-center justify-content-center w-100 px-1">
-                  <p className="m-0 text-white">{title}</p>
+              <div
+                className="d-flex w-100 overflow-x-hidden pe-1"
+                ref={divInfoLg}
+              >
+                <img src={cover} ref={imgInfoLg} className="pe-1" />
+                <div className="d-flex align-items-end justify-content-start w-100 px-1 overflow-x-hidden">
+                  <p className="m-0 text-white text-nowrap pe-2" ref={pInfoLg}>
+                    {title}
+                  </p>
                 </div>
               </div>
             ) : (
