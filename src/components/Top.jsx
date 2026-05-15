@@ -1,8 +1,5 @@
-import { Container } from "react-bootstrap";
+import { Alert, Container, Spinner } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import unoA from "../../assets/images/1a.png";
-import unoB from "../../assets/images/1b.png";
-import unoC from "../../assets/images/1c.png";
 import { useEffect, useState } from "react";
 import { getSongs } from "../files/functions";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +18,6 @@ const Top = () => {
       setSongs(data.data);
       setError(false);
       setLoading(false);
-      console.log(data.data);
     } catch (er) {
       setError(true);
       seterMes(er.toString());
@@ -40,6 +36,16 @@ const Top = () => {
 
   return (
     <>
+      {error && (
+        <Alert variant="danger" className="text-center">
+          {erMes}
+        </Alert>
+      )}
+      {loading && (
+        <div className=" text-center pt-3">
+          <Spinner />
+        </div>
+      )}
       {!loading && !error && (
         <Container className="mt-3" id="topContainer">
           <h1 className="text-white">Novità</h1>
