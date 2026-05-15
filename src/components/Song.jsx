@@ -77,7 +77,7 @@ const Song = () => {
                 });
                 dispatch({
                   type: "GET_TITLE",
-                  payload: song.album.title,
+                  payload: song.title,
                 });
                 dispatch({
                   type: "GET_COVER",
@@ -93,7 +93,7 @@ const Song = () => {
               <Card.Body className="pt-1">
                 <Card.Text className="text-white">
                   {" "}
-                  {song.album.title}
+                  {song.title_short}
                 </Card.Text>
               </Card.Body>
             </Card>

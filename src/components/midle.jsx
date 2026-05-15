@@ -1,18 +1,23 @@
-import { Container, Carousel, Alert, Spinner } from "react-bootstrap";
-import dueA from "../../assets/images/2a.png";
-import dueB from "../../assets/images/2b.png";
-import dueC from "../../assets/images/2c.png";
-import dueD from "../../assets/images/2d.png";
-import dueE from "../../assets/images/2e.png";
-import dueF from "../../assets/images/2f.png";
+import {
+  Container,
+  Carousel,
+  Alert,
+  Spinner,
+  CarouselItem,
+} from "react-bootstrap";
+
 import { useEffect, useState } from "react";
 import { getSongs } from "../files/functions";
+import { useDispatch } from "react-redux";
 
 const Middle = () => {
   const [songs, setSongs] = useState([]);
+
   const [error, setError] = useState(false);
   const [erMes, setErMes] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
 
   const getData = async function () {
     try {
@@ -26,6 +31,21 @@ const Middle = () => {
       setError(true);
       setErMes(er.toString());
     }
+  };
+
+  const handleClick = function (song) {
+    dispatch({
+      type: "GET_AUDIO",
+      payload: song.preview,
+    });
+    dispatch({
+      type: "GET_TITLE",
+      payload: song.title,
+    });
+    dispatch({
+      type: "GET_COVER",
+      payload: song.album.cover_big,
+    });
   };
 
   useEffect(() => {
@@ -50,36 +70,24 @@ const Middle = () => {
           <Carousel controls={false} className="d-none d-lg-flex" id="midCar">
             <Carousel.Item>
               <div className="d-flex big-car">
-                {() => {
-                  const ar = [];
-                  for (let i = 0; i < 6; i++) {
-                    const boj = {};
-                  }
-                }}
-                {/*      <div className="d-flex flex-column">
-                  <img src={songs[0].album.cover_big} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueB} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueC} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueD} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueE} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueF} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>*/}
+                {songs.slice(0, 5).map((s) => {
+                  return (
+                    <div>
+                      <div>
+                        <img
+                          src={s.album.cover_big}
+                          className=" mx-1 flex-grow-1 "
+                          onClick={() => {
+                            handleClick(s);
+                          }}
+                        />
+                      </div>
+                      <p className="text-white ms-1  text-break">
+                        {s.title_short}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </Carousel.Item>
           </Carousel>
@@ -89,38 +97,50 @@ const Middle = () => {
             className="d-lg-none"
             id="smCar"
           >
-            <Carousel.Item>
+            <CarouselItem>
               <div className="d-flex big-car">
-                <div className="d-flex flex-column">
-                  <img src={dueA} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueB} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueC} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
+                {songs.slice(0, 3).map((s) => {
+                  return (
+                    <div>
+                      <div>
+                        <img
+                          src={s.album.cover_big}
+                          className=" mx-1 flex-grow-1 "
+                          onClick={() => {
+                            handleClick(s);
+                          }}
+                        />
+                      </div>
+                      <p className="text-white ms-1  text-break">
+                        {s.title_short}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
-            </Carousel.Item>
-            <Carousel.Item>
+            </CarouselItem>
+            <CarouselItem>
               <div className="d-flex big-car">
-                <div className="d-flex flex-column">
-                  <img src={dueE} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueF} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
-                <div className="d-flex flex-column">
-                  <img src={dueA} className=" mx-1 flex-grow-1 " />
-                  <p className="text-white ms-1">Prologo con Abuelo</p>
-                </div>
+                {songs.slice(3, 6).map((s) => {
+                  return (
+                    <div>
+                      <div>
+                        <img
+                          src={s.album.cover_big}
+                          className=" mx-1 flex-grow-1 "
+                          onClick={() => {
+                            handleClick(s);
+                          }}
+                        />
+                      </div>
+                      <p className="text-white ms-1  text-break">
+                        {s.title_short}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
-            </Carousel.Item>
+            </CarouselItem>
           </Carousel>
         </>
       )}

@@ -174,24 +174,24 @@ $new-theme-colors: (
   display: none;
 }
 
-#midCar .big-car div {
-  height: 15em;
-}
-
 #midCar .big-car img {
   width: 98%;
-  object-fit: contain;
+  object-fit: cover;
   height: 15em;
 }
 
-#smCar .big-car div {
-  width: 33%;
+#midCar .big-car p {
+  width: 90%;
 }
 
 #smCar .carousel-item .big-car img {
   width: 98%;
-  object-fit: contain;
+  object-fit: cover;
   height: 15em;
+}
+
+#smCar .big-car p {
+  width: 90%;
 }
 
 .card {
