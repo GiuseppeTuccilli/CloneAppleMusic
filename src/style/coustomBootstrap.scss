@@ -354,7 +354,7 @@ $new-theme-colors: (
 }
 
 .animateInfo {
-  animation: infoAnimation 5s linear 0s infinite;
+  animation: infoAnimation var(--dur) linear 0s infinite;
 }
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);

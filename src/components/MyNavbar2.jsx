@@ -187,6 +187,18 @@ const MyNavbar2 = () => {
           "--wid",
           dif.toString() + "px",
         );
+
+        let duration = 5;
+
+        if (-dif < 100) {
+          duration = 4;
+        }
+        if (-dif > 150) {
+          duration = 6;
+        }
+
+        document.documentElement.style.setProperty(`--dur`, `${duration}s`);
+
         pInfo.current.classList.add("animateInfo");
       } else {
         pInfo.current.classList.remove("animateInfo");
@@ -204,15 +216,15 @@ const MyNavbar2 = () => {
           "--wid",
           dif.toString() + "px",
         );
+
         let duration = 5;
-        if (-dif < 90) {
+
+        if (-dif < 100) {
           duration = 4;
         }
-        if (-dif < 60) {
-          duration = 3;
+        if (-dif > 150) {
+          duration = 6;
         }
-
-        console.log(dif);
 
         document.documentElement.style.setProperty(`--dur`, `${duration}s`);
 
