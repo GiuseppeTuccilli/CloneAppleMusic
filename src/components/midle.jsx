@@ -25,7 +25,6 @@ const Middle = () => {
       setSongs(data.data);
       setError(false);
       setLoading(false);
-      console.log(data.data);
     } catch (er) {
       setLoading(false);
       setError(true);
@@ -72,7 +71,7 @@ const Middle = () => {
               <div className="d-flex big-car">
                 {songs.slice(0, 5).map((s) => {
                   return (
-                    <div>
+                    <div key={s.title}>
                       <div>
                         <img
                           src={s.album.cover_big}
@@ -101,7 +100,7 @@ const Middle = () => {
               <div className="d-flex big-car">
                 {songs.slice(0, 3).map((s) => {
                   return (
-                    <div>
+                    <div key={s.title}>
                       <div>
                         <img
                           src={s.album.cover_big}
@@ -123,7 +122,7 @@ const Middle = () => {
               <div className="d-flex big-car">
                 {songs.slice(3, 6).map((s) => {
                   return (
-                    <div>
+                    <div key={s.title}>
                       <div>
                         <img
                           src={s.album.cover_big}

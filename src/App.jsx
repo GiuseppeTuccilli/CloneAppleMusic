@@ -32,8 +32,8 @@ function App() {
                     <>
                       <div className="topSpace"></div>
                       <Top />
-                      <Middle />
                       <NuoveUscite />
+                      <Middle />
                     </>
                   }
                 />

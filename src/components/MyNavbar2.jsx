@@ -176,9 +176,6 @@ const MyNavbar2 = () => {
       audioRef.volume = vol.current.value;
     }
 
-    console.log(divInfo);
-    console.log(pInfo);
-
     if (divInfo !== null && pInfo !== null) {
       if (pInfo.current.clientWidth > divInfo.current.clientWidth) {
         const dif =
@@ -190,10 +187,10 @@ const MyNavbar2 = () => {
 
         let duration = 5;
 
-        if (-dif < 100) {
+        if (-dif < 90) {
           duration = 4;
         }
-        if (-dif > 150) {
+        if (-dif > 130) {
           duration = 6;
         }
 
@@ -219,10 +216,10 @@ const MyNavbar2 = () => {
 
         let duration = 5;
 
-        if (-dif < 100) {
+        if (-dif < 90) {
           duration = 4;
         }
-        if (-dif > 150) {
+        if (-dif > 130) {
           duration = 6;
         }
 

@@ -19,10 +19,6 @@ const Song = () => {
     return state.audioA.audio;
   });
 
-  const searched = useSelector((state) => {
-    return state.nuove.search;
-  });
-
   const params = useParams();
 
   useEffect(() => {
@@ -30,8 +26,7 @@ const Song = () => {
     if (word === undefined || word === "") {
       word = "rock";
     }
-    let searchedSongs = searched;
-    console.log(searchedSongs);
+
     dispatch(async (dispatch, getState) => {
       try {
         const data = await getSongs(word);
@@ -42,7 +37,6 @@ const Song = () => {
         setError(false);
         setLoading(false);
       } catch (er) {
-        console.log(er.toString());
         setError(true);
         setErrMes(er.toString());
         setLoading(false);

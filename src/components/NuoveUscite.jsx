@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const NuoveUscite = () => {
   const params = useParams();
-  console.log(params.Search);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
