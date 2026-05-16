@@ -83,6 +83,14 @@ const MyNavbar2 = () => {
         type: "GET_AUDIO",
         payload: songsArray[randomIndex].preview,
       });
+      dispatch({
+        type: "GET_TITLE",
+        payload: songsArray[randomIndex].title,
+      });
+      dispatch({
+        type: "GET_COVER",
+        payload: songsArray[randomIndex].album.cover_big,
+      });
     } else {
       return;
     }
@@ -272,10 +280,26 @@ const MyNavbar2 = () => {
         type: "GET_AUDIO",
         payload: songsArray[0].preview,
       });
+      dispatch({
+        type: "GET_TITLE",
+        payload: songsArray[0].title,
+      });
+      dispatch({
+        type: "GET_COVER",
+        payload: songsArray[0].album.cover_big,
+      });
     } else {
       dispatch({
         type: "GET_AUDIO",
         payload: songsArray[j + 1].preview,
+      });
+      dispatch({
+        type: "GET_TITLE",
+        payload: songsArray[j + 1].title,
+      });
+      dispatch({
+        type: "GET_COVER",
+        payload: songsArray[j + 1].album.cover_big,
       });
     }
   };
@@ -300,10 +324,26 @@ const MyNavbar2 = () => {
         type: "GET_AUDIO",
         payload: songsArray[songsArray.length - 1].preview,
       });
+      dispatch({
+        type: "GET_TITLE",
+        payload: songsArray[songsArray.length - 1].title,
+      });
+      dispatch({
+        type: "GET_COVER",
+        payload: songsArray[songsArray.length - 1].album.cover_big,
+      });
     } else {
       dispatch({
         type: "GET_AUDIO",
         payload: songsArray[j - 1].preview,
+      });
+      dispatch({
+        type: "GET_TITLE",
+        payload: songsArray[j - 1].title,
+      });
+      dispatch({
+        type: "GET_COVER",
+        payload: songsArray[j - 1].album.cover_big,
       });
     }
   };
